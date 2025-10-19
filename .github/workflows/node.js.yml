@@ -1,28 +1,35 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Platzi CI
+name: Platzi CI Brandon
 
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 
 jobs:
   platzi:
 
     runs-on: ubuntu-latest
-
+    
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x, 20.x, 24.x]
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          cache: 'npm'
-      - run: npm ci --legacy-peer-deps --no-fund --no-audit
-      - run: npm run lint
-      - run: npm run test
-      - run: npm run build
-
+    - uses: actions/checkout@v5
+    - uses: actions/setup-node@v6
+      with:
+        cache: 'npm'
+    - run: npm ci --legacy-peer-deps --no-fund --no-audit
+    - run: npm run lint
+    - run: npm test
+    - run: npm run build
