@@ -1,1 +1,1 @@
-[![Lo que queramos](https://github.com/midudev/midudev-aprender-tdd/actions/workflows/node.js.yml/badge.svg)](https://github.com/midudev/midudev-aprender-tdd/actions/workflows/node.js.yml)
+[![Primer workflow MIDU](https://github.com/SalvasDev/salva-aprender-tdd/actions/workflows/first-node.js.yml/badge.svg)](https://github.com/SalvasDev/salva-aprender-tdd/actions/workflows/first-node.js.yml)
