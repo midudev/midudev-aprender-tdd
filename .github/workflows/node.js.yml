@@ -6,6 +6,8 @@ name: Leo P2 CI/CD
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
+
 
 jobs:
   platzi:
@@ -31,4 +33,3 @@ jobs:
       - run: npm run lint
       - run: npm run test
       - run: npm run build
-
